@@ -42,9 +42,6 @@ def find_nums():
     #f.close()
 
 
-    #time.sleep(2)
-    #driver.quit()
-
 def get_nums_to_list():
     f = open("test.txt","r")
     r = f.read()
@@ -112,17 +109,12 @@ def parse_decisions():
                             if name in line:
                                 minNames.append(name)
                 count = str(len(majNames)) + " to " + str(len(minNames))
-                print(majNames)
-                print(minNames)
-                print(count)
 
                 row.append(val)
                 row.append(count)
                 row.append(','.join(majNames))
                 row.append(','.join(minNames))
                 w.writerow(row)
-
-            
                         
             f.close()
             f2.close()
@@ -168,7 +160,7 @@ def find_similar():
             w.writerow(header)
             for i in range(len(data)):
                 l = [names[i]]
-                for j in range(len(data[i])-1):sdfsd
+                for j in range(len(data[i])-1):
                     l.append(data[i][j][0]/data[i][j][1])
                 l.append(data[i][-1][0]/(data[i][-1][0]+data[i][-1][1]))
                 w.writerow(l)
