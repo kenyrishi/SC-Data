@@ -14,6 +14,7 @@ from selenium.webdriver import EdgeOptions
 import csv
 
 names = ['Wagner','Moldaver','Karakatsanis','Côté','Brown','Rowe','Martin','Kasirer','Jamal']
+prevNames = ['Gascon','Cromwell','Rothstein','Charron','McLachlin','Abella']
 majWords = ["Unanimous","Majority","Concurring"]
 minWords = ["Dissenting"]
 
