@@ -25,12 +25,12 @@ def setup():
     driver = webdriver.Edge(options=options)
     return driver
 
-def find_nums():
+def find_nums(year):
     driver.get('https://www.scc-csc.ca/case-dossier/cb/index-eng.aspx')
     time.sleep(2)
     f = open("test.txt","w")
     for i in range (2,41):
-        xpath = '//*[@id="2022"]/table/thead/tr['+str(i)+']/td[3]' 
+        xpath = '//*[@id="'+year+'"]/table/thead/tr['+str(i)+']/td[3]' 
         element = driver.find_element(By.XPATH, xpath)
         f.write(element.text)
         f.write('\n')
@@ -50,12 +50,12 @@ def get_nums_to_list():
     f.close()
     return d
 
-def visit_nums(driver, ids):
+def visit_nums(driver, ids, year):
     with open('csvfile.csv','w',newline='') as f:
         w = csv.writer(f)
                 
         for num in ids:
-            site = 'https://scc-csc.ca/case-dossier/cb/2022/'+num+'-eng.aspx'
+            site = 'https://scc-csc.ca/case-dossier/cb/'+year+'/'+num+'-eng.aspx'
             driver.get(site)
             info = []
             info.append(num)
