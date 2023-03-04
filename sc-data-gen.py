@@ -168,6 +168,17 @@ def find_similar():
             f2.close()    
                 
 
+
+def create_data():
+    startYear = 2018
+    endyear = 2023
+    driver = setup()
+    for year in range(startYear,endYear+1):
+        find_nums(year)
+        ids = get_nums_to_list()
+        visit_nums(driver,ids,year)
+        parse_decisions()
+        find_similar()
         
 
 def main():
