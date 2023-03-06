@@ -25,6 +25,7 @@ def setup():
     driver = webdriver.Edge(options=options)
     return driver
 
+#goes through site and finds all case nums in a year, adds to text file
 def find_nums(year):
     driver.get('https://www.scc-csc.ca/case-dossier/cb/index-eng.aspx')
     time.sleep(2)
@@ -42,7 +43,7 @@ def find_nums(year):
     #f.write(info)
     #f.close()
 
-
+#gets case nums from text file
 def get_nums_to_list():
     f = open("test.txt","r")
     r = f.read()
@@ -50,6 +51,7 @@ def get_nums_to_list():
     f.close()
     return d
 
+#for each case num id, gets all text and adds it to csv file
 def visit_nums(driver, ids, year):
     with open('csvfile.csv','w',newline='') as f:
         w = csv.writer(f)
@@ -81,7 +83,7 @@ def visit_nums(driver, ids, year):
 
         f.close()
 
-        
+#goes through csv file of all cases and turns it into readable form       
 def parse_decisions():
     with open('csvfile.csv','r') as f:
          with open('completefile.csv','w',newline='') as f2:
@@ -121,6 +123,7 @@ def parse_decisions():
             f2.close()
 
 
+#calculates similarities and adds to csv file
 def find_similar():
     with open('completefile.csv','r') as f:
         r = csv.reader(f)
